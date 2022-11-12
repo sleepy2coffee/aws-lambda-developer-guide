@@ -6,7 +6,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: target/java-basic-1.0-SNAPSHOT.jar
-      Handler: example.Handler
+      Handler: example.HandlerWeatherData
+      Role: arn:aws:iam::712147002234:role/lambda-test
       Runtime: java8
       Description: Java function
       MemorySize: 512

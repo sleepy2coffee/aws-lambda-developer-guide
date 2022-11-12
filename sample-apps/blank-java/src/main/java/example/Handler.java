@@ -1,27 +1,20 @@
 package example;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.amazonaws.services.lambda.runtime.events.SQSEvent;
-import com.amazonaws.services.lambda.runtime.events.SQSEvent.SQSMessage;
-
-import software.amazon.awssdk.services.lambda.model.GetAccountSettingsRequest;
-import software.amazon.awssdk.services.lambda.model.GetAccountSettingsResponse;
-import software.amazon.awssdk.services.lambda.model.ServiceException;
-import software.amazon.awssdk.services.lambda.LambdaAsyncClient;
-import software.amazon.awssdk.services.lambda.model.AccountUsage;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import java.util.concurrent.CompletableFuture;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.StringBuilder;
-import java.util.Map;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.events.SQSEvent;
+import com.amazonaws.services.lambda.runtime.events.SQSEvent.SQSMessage;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import software.amazon.awssdk.services.lambda.LambdaAsyncClient;
+import software.amazon.awssdk.services.lambda.model.GetAccountSettingsRequest;
+import software.amazon.awssdk.services.lambda.model.GetAccountSettingsResponse;
 
 // Handler value: example.Handler
 public class Handler implements RequestHandler<SQSEvent, String>{
